@@ -1,0 +1,64 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String        @id @default(uuid())
+  email     String        @unique
+  provider  Provider
+  role      Role
+  profiles  ProfileView[]
+  bookmarks Bookmark[]
+  upvotes   Upvote[]
+}
+
+model ProfileView {
+  id       String     @id @default(uuid())
+  type     Department
+  active   Boolean    @default(true)
+  upvotes  Upvote[]
+  userId   String
+  user     User       @relation(fields: [userId], references: [id])
+}
+
+model Bookmark {
+  id         String     @id @default(uuid())
+  type       Department
+  bookmarked Boolean    @default(true)
+  userId     String
+  user       User       @relation(fields: [userId], references: [id])
+}
+
+model Upvote {
+  id         String       @id @default(uuid())
+  userId     String
+  profileId  String
+  user       User         @relation(fields: [userId], references: [id])
+  profile    ProfileView  @relation(fields: [profileId], references: [id])
+  @@unique([userId, profileId])
+}
+
+enum Department {
+  HR
+  Android
+  IOS
+  ML
+  Devops
+  Backend
+  Frontend
+  Management
+}
+
+enum Role {
+  Employee
+  EndUser
+}
+
+enum Provider {
+  Google
+}
