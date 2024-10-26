@@ -12,35 +12,36 @@ model User {
   email     String        @unique
   provider  Provider
   role      Role
-  profiles  ProfileView[]
   bookmarks Bookmark[]
+  profiles  ProfileView[]
   upvotes   Upvote[]
 }
 
 model ProfileView {
-  id            String     @id @default(uuid())
-  type          Department
-  url           String
-  active        Boolean    @default(true)
-  upvotes       Upvote[]
-  userId        String
-  user          User       @relation(fields: [userId], references: [id])
-  bookmark      Boolean
+  id       String     @id @default(uuid())
+  type     Department
+  url      String
+  active   Boolean    @default(true)
+  userId   String
+  bookmark Boolean
+  user     User       @relation(fields: [userId], references: [id])
+  upvotes  Upvote[]
 }
 
 model Bookmark {
-  id         String     @id @default(uuid())
-  bookmarked Boolean    @default(true)
+  id         String  @id @default(uuid())
+  bookmarked Boolean @default(true)
   userId     String
-  user       User       @relation(fields: [userId], references: [id])
+  user       User    @relation(fields: [userId], references: [id])
 }
 
 model Upvote {
-  id         String       @id @default(uuid())
-  userId     String
-  profileId  String
-  user       User         @relation(fields: [userId], references: [id])
-  profile    ProfileView  @relation(fields: [profileId], references: [id])
+  id        String      @id @default(uuid())
+  userId    String
+  profileId String
+  profile   ProfileView @relation(fields: [profileId], references: [id])
+  user      User        @relation(fields: [userId], references: [id])
+
   @@unique([userId, profileId])
 }
 
