@@ -14,7 +14,6 @@ model User {
   role      Role
   bookmarks Bookmark[]
   profiles  ProfileView[]
-  upvotes   Upvote[]
 }
 
 model ProfileView {
@@ -23,9 +22,8 @@ model ProfileView {
   url      String
   active   Boolean    @default(true)
   userId   String
-  bookmark Boolean
+  bookmark Boolean    @default(false)
   user     User       @relation(fields: [userId], references: [id])
-  upvotes  Upvote[]
 }
 
 model Bookmark {
@@ -39,10 +37,11 @@ model Upvote {
   id        String      @id @default(uuid())
   userId    String
   profileId String
-  profile   ProfileView @relation(fields: [profileId], references: [id])
-  user      User        @relation(fields: [userId], references: [id])
-
-  @@unique([userId, profileId])
+}
+model Downvote {
+  id        String      @id @default(uuid())
+  userId    String
+  profileId String
 }
 
 enum Department {

@@ -4,47 +4,66 @@ import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 
 const upvoteSchema = z.object({
-    userID: z.string() // This is the profile ID you want to upvote
+    userId: z.string(),
+    profileId: z.string() // This is the user's true ID you want to upvote
 });
 
 export async function POST(req: NextRequest) {
-    const session = await getServerSession();
-    const user = await prismaClient.user.findFirst({
-        where: {
-            email: session?.user?.email ?? ""
-        }
-    });
-    if (!user) {
-        return NextResponse.json({
-            message: "Unauthorized"
-        }, {
-            status: 403
-        });
-    }
+    // const session = await getServerSession();
+    // const user = await prismaClient.user.findFirst({
+    //     where: {
+    //         email: session?.user?.email ?? ""
+    //     }
+    // });
+    // if (!user) {
+    //     return NextResponse.json({
+    //         message: "Unauthorized"
+    //     }, {
+    //         status: 403
+    //     });
+    // }
     try {
         const data = upvoteSchema.parse(await req.json());
-
-        // Ensure you're referencing the correct IDs based on your schema
-        await prismaClient.upvote.create({
-            data: {
-                userId: user.id, // This is the ID of the user who is voting
-                profileId: data.userID // This is the profile ID being upvoted
+        
+        // Check if a profile exists with the specified userId (profileId)
+        const profileExists = await prismaClient.profileView.findFirst({
+            where: { userId: data.profileId }, // Check if userId matches profileId
+        });
+        if (!profileExists) {
+            return NextResponse.json({
+                message: `Profile with User ID ${data.profileId} does not exist.`
+            }, { status: 404 });
+        }
+        const upvoteExists = await prismaClient.upvote.findFirst({
+            where: {
+                userId: data.userId,
+                profileId: data.profileId
             }
         });
-
+        if (upvoteExists) {
+            return NextResponse.json({
+                message: "Upvote already exists."
+            }, { status: 404 });
+        }
+        await prismaClient.upvote.create({
+            data: {
+                userId: data.userId,
+                profileId: data.profileId
+            }
+        });
+    
         return NextResponse.json({ message: "Upvote recorded successfully" }, { status: 201 });
     } catch (err) {
-        console.error(err); // Log the error for debugging
+        console.error("Error creating upvote:", err);
         return NextResponse.json({
-            message: "Error upvoting"
-        }, {
-            status: 500 // Use a 500 status code for internal server errors
-        });
+            message: err instanceof Error ? err.message : "Unknown error"
+        }, { status: 500 });
     }
 }
 
 export async function GET(req: NextRequest) {
     const profileId = req.nextUrl.searchParams.get("profileId");
+    console.log(profileId);
     if (!profileId) {
         return NextResponse.json({
             message: "Profile ID is required"
@@ -53,9 +72,10 @@ export async function GET(req: NextRequest) {
         });
     }
 
+    // Fetching profile by userId instead of id
     const profile = await prismaClient.profileView.findFirst({
         where: {
-            id: profileId // Fetching by profile ID instead of userId
+            userId: profileId // Fetching profile by userId
         }
     });
 

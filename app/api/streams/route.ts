@@ -11,13 +11,21 @@ const CreateProfileViewSchema = z.object({
 
 export async function POST(req: NextRequest) {
     // const session = await getServerSession(authOptions);
-
     // if (!session?.user) {
     //     return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
     // }
 
     try {
         const data = CreateProfileViewSchema.parse(await req.json());
+
+        // Check if the user exists
+        const userExists = await prismaClient.user.findUnique({
+            where: { id: data.employeeID }, // Replace 'id' with the actual field if needed
+        });
+
+        if (!userExists) {
+            return NextResponse.json({ message: "User ID does not exist" }, { status: 404 });
+        }
 
         const newProfileView = await prismaClient.profileView.create({
             data: {
@@ -37,31 +45,6 @@ export async function POST(req: NextRequest) {
         if (e instanceof z.ZodError) {
             return NextResponse.json({ message: "Validation error", issues: e.errors }, { status: 400 });
         }
-        return NextResponse.json({ message: "Internal server error" }, { status: 500 });
-    }
-}
-
-export async function GET(req: NextRequest) {
-    // const session = await getServerSession(authOptions);
-
-    // if (!session?.user) {
-    //     return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
-    // }
-
-    const userId = req.nextUrl.searchParams.get("userId");
-
-    if (!userId) {
-        return NextResponse.json({ message: "User ID is required" }, { status: 400 });
-    }
-
-    try {
-        const profileViews = await prismaClient.profileView.findMany({
-            where: { userId },
-        });
-
-        return NextResponse.json({ profileViews }, { status: 200 });
-    } catch (error) {
-        console.error(error);
-        return NextResponse.json({ message: "Error retrieving profile views" }, { status: 500 });
+        return NextResponse.json({ message: e.message }, { status: 500 });
     }
 }
