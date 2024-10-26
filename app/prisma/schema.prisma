@@ -21,7 +21,6 @@ model ProfileView {
   id            String     @id @default(uuid())
   type          Department
   url           String
-  extractedId   String
   active        Boolean    @default(true)
   upvotes       Upvote[]
   userId        String
