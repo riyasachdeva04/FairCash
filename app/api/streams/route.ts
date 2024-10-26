@@ -1,7 +1,6 @@
 import { prismaClient } from "@/app/lib/db";
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
-import { getServerSession } from "next-auth";
 // import { authOptions } from "@/app/api/auth/[...nextauth]/route"; // Adjust this import based on your file structure
 
 const CreateProfileViewSchema = z.object({
@@ -45,6 +44,6 @@ export async function POST(req: NextRequest) {
         if (e instanceof z.ZodError) {
             return NextResponse.json({ message: "Validation error", issues: e.errors }, { status: 400 });
         }
-        return NextResponse.json({ message: e.message }, { status: 500 });
+        return NextResponse.json({ message: "Errors" }, { status: 500 });
     }
 }

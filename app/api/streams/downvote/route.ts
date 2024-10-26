@@ -1,5 +1,4 @@
 import { prismaClient } from "@/app/lib/db";
-import { getServerSession } from "next-auth";
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 
@@ -40,6 +39,20 @@ export async function POST(req: NextRequest) {
                 profileId: data.profileId
             }
         });
+        const upvoteExists = await prismaClient.upvote.findFirst({
+            where: {
+                userId: data.userId,
+                profileId: data.profileId
+            }
+        });
+        if(upvoteExists){
+            await prismaClient.upvote.deleteMany({
+                where: {
+                    userId: data.userId,
+                    profileId: data.profileId
+                }
+            });
+        }
         if (downvoteExists) {
             return NextResponse.json({
                 message: "downvote already exists."
