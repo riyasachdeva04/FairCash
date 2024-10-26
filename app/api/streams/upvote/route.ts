@@ -4,29 +4,15 @@ import { z } from "zod";
 
 const upvoteSchema = z.object({
     userId: z.string(),
-    profileId: z.string() // This is the user's true ID you want to upvote
+    profileId: z.string() 
 });
 
 export async function POST(req: NextRequest) {
-    // const session = await getServerSession();
-    // const user = await prismaClient.user.findFirst({
-    //     where: {
-    //         email: session?.user?.email ?? ""
-    //     }
-    // });
-    // if (!user) {
-    //     return NextResponse.json({
-    //         message: "Unauthorized"
-    //     }, {
-    //         status: 403
-    //     });
-    // }
     try {
         const data = upvoteSchema.parse(await req.json());
         
-        // Check if a profile exists with the specified userId (profileId)
         const profileExists = await prismaClient.profileView.findFirst({
-            where: { userId: data.profileId }, // Check if userId matches profileId
+            where: { userId: data.profileId },
         });
         if (!profileExists) {
             return NextResponse.json({
@@ -85,10 +71,9 @@ export async function GET(req: NextRequest) {
         });
     }
 
-    // Fetching profile by userId instead of id
     const profile = await prismaClient.profileView.findFirst({
         where: {
-            userId: profileId // Fetching profile by userId
+            userId: profileId
         }
     });
 

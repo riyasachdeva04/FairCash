@@ -12,7 +12,6 @@ model User {
   email     String        @unique
   provider  Provider
   role      Role
-  bookmarks Bookmark[]
   profiles  ProfileView[]
 }
 
@@ -27,10 +26,9 @@ model ProfileView {
 }
 
 model Bookmark {
-  id         String  @id @default(uuid())
-  bookmarked Boolean @default(true)
-  userId     String
-  user       User    @relation(fields: [userId], references: [id])
+  id        String      @id @default(uuid())
+  userId    String
+  profileId String
 }
 
 model Upvote {
