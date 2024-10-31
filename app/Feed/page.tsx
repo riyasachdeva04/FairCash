@@ -6,6 +6,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
 import { ThumbsUp, ThumbsDown, Bookmark, Briefcase, Mail } from "lucide-react"
 import { useInView } from "react-intersection-observer"
+import Link from 'next/link'
 
 const fetchEmployees = async (page: number) => {
   await new Promise(resolve => setTimeout(resolve, 1000))
@@ -21,8 +22,8 @@ const fetchEmployees = async (page: number) => {
     isBookmarked: false,
   }))
 }
-
 export default function Feed() {
+
   const [employees, setEmployees] = useState([])
   const [page, setPage] = useState(1)
   const [ref, inView] = useInView()
@@ -62,6 +63,7 @@ export default function Feed() {
       )
     )
   }
+
 
   return (
     <div className="container mx-auto p-4">
@@ -118,6 +120,12 @@ export default function Feed() {
                 >
                   <Bookmark className={`w-4 h-4 ${employee.isBookmarked ? 'fill-current' : ''}`} />
                 </Button>
+              </div>
+              <div className="flex my-3">
+              <Link href={`/profile/${employee.id}`} passHref>
+                <Button>View Profile</Button>
+                </Link>
+
               </div>
             </CardContent>
           </Card>
