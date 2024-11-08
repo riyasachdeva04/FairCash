@@ -1,85 +1,92 @@
-"use client"
+"use client"; // Mark this file as a Client Component
 
-import { useState, useEffect } from "react"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { Button } from "@/components/ui/button"
-import { ThumbsUp, ThumbsDown, Bookmark, Briefcase, Mail } from "lucide-react"
-import { useInView } from "react-intersection-observer"
-import Link from 'next/link'
-
-const fetchEmployees = async (page: number) => {
-  await new Promise(resolve => setTimeout(resolve, 1000))
-  
-  return Array.from({ length: 10 }, (_, i) => ({
-    id: page * 10 + i + 1,
-    name: `Employee ${page * 10 + i + 1}`,
-    role: ["Software Engineer", "Product Manager", "Designer", "Marketing Specialist", "HR Manager"][Math.floor(Math.random() * 5)],
-    department: ["Engineering", "Product", "Design", "Marketing", "HR"][Math.floor(Math.random() * 5)],
-    email: `employee${page * 10 + i + 1}@company.com`,
-    upvotes: Math.floor(Math.random() * 100),
-    downvotes: Math.floor(Math.random() * 20),
-    isBookmarked: false,
-  }))
-}
+import { useEffect, useState } from "react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Button } from "@/components/ui/button";
+import { ThumbsUp, ThumbsDown, Bookmark, Briefcase, Mail } from "lucide-react";
+import Link from "next/link";
+import Papa from "papaparse";
+import { Appbar } from "../components/Appbar";
+import App from "next/app";
 export default function Feed() {
-
-  const [employees, setEmployees] = useState([])
-  const [page, setPage] = useState(1)
-  const [ref, inView] = useInView()
+  <Appbar></Appbar>
+  const [employees, setEmployees] = useState([]);
 
   useEffect(() => {
-    if (inView) {
-      loadMoreEmployees()
-    }
-  }, [inView])
+    const loadData = async () => {
+      const response = await fetch("/employees.csv");
+      const csvText = await response.text();
+      const parsedData = Papa.parse(csvText, { header: true }).data;
 
-  const loadMoreEmployees = async () => {
-    const newEmployees = await fetchEmployees(page)
-    setEmployees(prev => [...prev, ...newEmployees])
-    setPage(prev => prev + 1)
-  }
+      const processedData = parsedData.map((employee) => ({
+        ...employee,
+        upvotes: !isNaN(Number(employee.Upvotes)) ? Number(employee.Upvotes) : 0,
+        downvotes: !isNaN(Number(employee.Downvotes)) ? Number(employee.Downvotes) : 0,
+        isBookmarked: false,
+        isUpvoted: false,
+        isDownvoted: false
+      }));
 
-  const handleVote = (employeeId: number, voteType: 'upvote' | 'downvote') => {
-    setEmployees(prev =>
-      prev.map(emp =>
-        emp.id === employeeId
+      setEmployees(processedData);
+    };
+
+    loadData();
+  }, []);
+
+  const handleVote = (index, voteType) => {
+    setEmployees((prev) =>
+      prev.map((emp, i) =>
+        i === index
           ? {
               ...emp,
-              upvotes: voteType === 'upvote' ? emp.upvotes + 1 : emp.upvotes,
-              downvotes: voteType === 'downvote' ? emp.downvotes + 1 : emp.downvotes,
+              upvotes: voteType === "upvote" 
+                ? emp.isUpvoted ? emp.upvotes - 1 : emp.upvotes + 1 
+                : emp.upvotes,
+              isUpvoted: voteType === "upvote" 
+                ? !emp.isUpvoted 
+                : emp.isUpvoted,
+              
+              downvotes: voteType === "downvote" 
+                ? emp.isDownvoted ? emp.downvotes - 1 : emp.downvotes + 1 
+                : emp.downvotes,
+              isDownvoted: voteType === "downvote" 
+                ? !emp.isDownvoted 
+                : emp.isDownvoted,
             }
           : emp
       )
-    )
-  }
+    );
+  };
+  
 
-  const handleBookmark = (employeeId: number) => {
-    setEmployees(prev =>
-      prev.map(emp =>
-        emp.id === employeeId
-          ? { ...emp, isBookmarked: !emp.isBookmarked }
-          : emp
+  const handleBookmark = (index) => {
+    setEmployees((prev) =>
+      prev.map((emp, i) =>
+        i === index ? { ...emp, isBookmarked: !emp.isBookmarked } : emp
       )
-    )
-  }
-
+    );
+  };
 
   return (
     <div className="container mx-auto p-4">
       <h1 className="text-3xl font-bold mb-6">Employee Feed</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {employees.map((employee) => (
-          <Card key={employee.id} className="flex flex-col">
+        {employees.map((employee, index) => (
+          <Card key={index} className="flex flex-col">
             <CardHeader>
               <div className="flex items-center space-x-4">
                 <Avatar className="w-12 h-12">
-                  <AvatarImage src={`https://api.dicebear.com/6.x/initials/svg?seed=${employee.name}`} alt={employee.name} />
-                  <AvatarFallback>{employee.name.split(' ').map(n => n[0]).join('')}</AvatarFallback>
+                  <AvatarImage src={employee.Avatar} alt={employee.Name} />
+                  <AvatarFallback>
+                    {employee.Name.split(" ")
+                      .map((n) => n[0])
+                      .join("")}
+                  </AvatarFallback>
                 </Avatar>
                 <div>
-                  <CardTitle className="text-lg">{employee.name}</CardTitle>
-                  <p className="text-sm text-muted-foreground">{employee.role}</p>
+                  <CardTitle className="text-lg">{employee.Name}</CardTitle>
+                  <p className="text-sm text-muted-foreground">{employee.Role}</p>
                 </div>
               </div>
             </CardHeader>
@@ -87,11 +94,11 @@ export default function Feed() {
               <div className="space-y-2">
                 <div className="flex items-center">
                   <Briefcase className="w-4 h-4 mr-2" />
-                  <span className="text-sm">{employee.department}</span>
+                  <span className="text-sm">{employee.Department}</span>
                 </div>
                 <div className="flex items-center">
                   <Mail className="w-4 h-4 mr-2" />
-                  <span className="text-sm">{employee.email}</span>
+                  <span className="text-sm">{employee.Email}</span>
                 </div>
               </div>
               <div className="mt-4 flex justify-between items-center">
@@ -99,43 +106,39 @@ export default function Feed() {
                   <Button
                     variant="outline"
                     size="sm"
-                    onClick={() => handleVote(employee.id, 'upvote')}
+                    onClick={() => handleVote(index, "upvote")}
                   >
-                    <ThumbsUp className="w-4 h-4 mr-1" />
+                    <ThumbsUp className={`w-4 h-4 ${employee.isUpvoted ? "fill-current" : ""}`} />
                     <span>{employee.upvotes}</span>
                   </Button>
                   <Button
                     variant="outline"
                     size="sm"
-                    onClick={() => handleVote(employee.id, 'downvote')}
+                    onClick={() => handleVote(index, "downvote")}
                   >
-                    <ThumbsDown className="w-4 h-4 mr-1" />
+                    <ThumbsDown className={`w-4 h-4 ${employee.isDownvoted ? "fill-current" : ""}`} />
                     <span>{employee.downvotes}</span>
                   </Button>
                 </div>
                 <Button
                   variant="outline"
                   size="sm"
-                  onClick={() => handleBookmark(employee.id)}
+                  onClick={() => handleBookmark(index)}
                 >
-                  <Bookmark className={`w-4 h-4 ${employee.isBookmarked ? 'fill-current' : ''}`} />
+                  <Bookmark
+                    className={`w-4 h-4 ${employee.isBookmarked ? "fill-current" : ""}`}
+                  />
                 </Button>
               </div>
               <div className="flex my-3">
-              <Link href={`/profile/${employee.id}`} passHref>
-                <Button>View Profile</Button>
+                <Link href={{ pathname: `/profile` }} passHref>
+                  <Button>View Profile</Button>
                 </Link>
-
               </div>
             </CardContent>
           </Card>
         ))}
       </div>
-      <div ref={ref} className="flex justify-center mt-8">
-        <Button onClick={loadMoreEmployees} variant="outline">
-          Load More
-        </Button>
-      </div>
     </div>
-  )
+  );
 }
