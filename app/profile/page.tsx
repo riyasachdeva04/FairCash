@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
@@ -9,15 +9,15 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { BarChart, LineChart } from "@/components/ui/chart"
 import { ThumbsUp, ThumbsDown, Briefcase, GraduationCap, Award, Clock, Calendar } from "lucide-react"
 import { Textarea } from "@/components/ui/textarea"
+import GitHubCalendar from 'react-github-calendar';
 
 const employeeData = {
-  name: "Jane Doe",
-  role: "Senior Software Engineer",
   experience: "8 years",
   almaMater: "MIT",
   recommendations: 15,
   performanceScore: 92,
 }
+// const map1 = new Map();
 
 const salaryComparisonData = [
   { month: "Jan", employee: 8000, average: 8500 },
@@ -38,7 +38,14 @@ const skillAnalysisData = [
 
 export default function EmployeeProfile() {
   const [feedback, setFeedback] = useState("")
+  const [employee, setEmployee] = useState(null);
 
+  useEffect(() => {
+    const empData = JSON.parse(localStorage.getItem('employee'));
+    setEmployee(empData);
+  }, []); 
+
+  if (!employee) return <p>Loading...</p>;
   return (
     <div className="container mx-auto p-6">
       <div className="flex flex-col md:flex-row gap-6">
@@ -46,12 +53,12 @@ export default function EmployeeProfile() {
           <CardHeader>
             <div className="flex items-center space-x-4">
               <Avatar className="w-20 h-20">
-                <AvatarImage src="/placeholder.svg?height=80&width=80" alt={employeeData.name} />
-                <AvatarFallback>{employeeData.name.split(" ").map(n => n[0]).join("")}</AvatarFallback>
+                <AvatarImage src={`https://www.github.com/${employee.Name.split(' ')[0]}${employee.Name.split(' ')[1]}.png`} alt={employee.Name} />
+                <AvatarFallback>{employee.Name.split(" ").map(n => n[0]).join("")}</AvatarFallback>
               </Avatar>
               <div>
-                <CardTitle>{employeeData.name}</CardTitle>
-                <CardDescription>{employeeData.role}</CardDescription>
+                <CardTitle>{employee.Name}</CardTitle>
+                <CardDescription>{employee.Role}</CardDescription>
               </div>
             </div>
           </CardHeader>
@@ -111,7 +118,9 @@ export default function EmployeeProfile() {
           </CardContent>
         </Card>
       </div>
-
+      <Card className="flex-1 p-5">
+        <GitHubCalendar username={`${employee.Name.split(' ')[0]}${employee.Name.split(' ')[1]}`}/>
+      </Card>
       <Card className="mt-6">
         <CardHeader>
           <CardTitle>Work Metrics</CardTitle>

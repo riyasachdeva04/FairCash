@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
-import { ThumbsUp, ThumbsDown, Bookmark, Briefcase, Mail } from "lucide-react";
+import { ThumbsUp, ThumbsDown, Bookmark, Briefcase, Mail, Github } from "lucide-react";
 import Link from "next/link";
 import Papa from "papaparse";
 import { Appbar } from "../components/Appbar";
@@ -77,7 +77,7 @@ export default function Feed() {
             <CardHeader>
               <div className="flex items-center space-x-4">
                 <Avatar className="w-12 h-12">
-                  <AvatarImage src={employee.Avatar} alt={employee.Name} />
+                  <AvatarImage src={`https://www.github.com/${employee.Name.split(' ')[0]}${employee.Name.split(' ')[1]}.png`} alt={employee.Name} />
                   <AvatarFallback>
                     {employee.Name.split(" ")
                       .map((n) => n[0])
@@ -99,6 +99,10 @@ export default function Feed() {
                 <div className="flex items-center">
                   <Mail className="w-4 h-4 mr-2" />
                   <span className="text-sm">{employee.Email}</span>
+                </div>
+                <div className="flex items-center">
+                  <Github className="w-4 h-4 mr-2" />
+                  <button className="text-sm" onClick={() => {window.location.href = `https://www.github.com/${employee.Name.split(' ')[0]}${employee.Name.split(' ')[1]}`}}>Github</button>
                 </div>
               </div>
               <div className="mt-4 flex justify-between items-center">
@@ -132,7 +136,7 @@ export default function Feed() {
               </div>
               <div className="flex my-3">
                 <Link href={{ pathname: `/profile` }} passHref>
-                  <Button>View Profile</Button>
+                  <Button onClick={() => {localStorage.setItem('employee', JSON.stringify(employee))}}>View Profile</Button>
                 </Link>
               </div>
             </CardContent>
