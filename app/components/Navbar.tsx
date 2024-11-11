@@ -5,8 +5,8 @@ import { Button } from "@/components/ui/button";
 
 export function Navbar() {
     return (
-        <div className="flex justify-between items-center p-4 bg-gray-100">
-            <div className="text-xl font-bold">
+        <div className="flex justify-between items-center p-4 bg-gray-100 bg-black">
+            <div className="text-xl font-bold ">
                 Coworker Feed
             </div>
             <div>
