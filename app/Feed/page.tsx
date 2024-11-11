@@ -8,7 +8,7 @@ import { ThumbsUp, ThumbsDown, Bookmark, Briefcase, Mail, Github } from "lucide-
 import Link from "next/link";
 import Papa from "papaparse";
 import { Appbar } from "../components/Appbar";
-import App from "next/app";
+import { Navbar } from "../components/Navbar";
 export default function Feed() {
   <Appbar></Appbar>
   const [employees, setEmployees] = useState([]);
@@ -69,8 +69,18 @@ export default function Feed() {
   };
 
   return (
-    <div className="container mx-auto p-4">
+    <div className="flex-container mx-auto p-4">
+    {/* <div className="d-flex justify-between items-center w-full">
       <h1 className="text-3xl font-bold mb-6">Employee Feed</h1>
+      <div className="my-3">
+        <Link href={{ pathname: `/profile` }} passHref>
+          <Button>Your Profile</Button>
+        </Link>
+      </div>
+    </div> */}
+    <Navbar></Navbar>
+
+
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {employees.map((employee, index) => (
           <Card key={index} className="flex flex-col">

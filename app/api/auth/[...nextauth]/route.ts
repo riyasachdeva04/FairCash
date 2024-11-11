@@ -13,6 +13,7 @@ const handler = NextAuth({
         async signIn(params) {
             if (!params.user.email) return false;
             try {
+                localStorage.setItem('user.email', params.user.email);
                 await prismaClient.user.create({
                     data: {
                         email: params.user.email,

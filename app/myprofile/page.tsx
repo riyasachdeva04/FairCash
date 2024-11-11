@@ -1,18 +1,19 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
 import { Progress } from "@/components/ui/progress"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { ChartContainer } from "@/components/ui/chart"
-import { ThumbsUp, ThumbsDown, Briefcase, GraduationCap, Award, Clock } from "lucide-react"
+import { ThumbsUp, ThumbsDown, Briefcase, GraduationCap, Award, Clock, Calendar } from "lucide-react"
 import { Textarea } from "@/components/ui/textarea"
 import GitHubCalendar from 'react-github-calendar';
+import { TrendingUp } from "lucide-react"
 import { Bar, BarChart, CartesianGrid, Rectangle, XAxis } from "recharts"
 import {
   ChartConfig,
+  ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart"
@@ -60,7 +61,22 @@ const explicitTheme: ThemeInput = {
   dark: ['#f0f0f0', '#4D455D', '#7DB9B6', '#F5E9CF', '#E96479'],
 };
 
+const salaryComparisonData = [
+  { month: "Jan", employee: 8000, average: 8500 },
+  { month: "Feb", employee: 8200, average: 8600 },
+  { month: "Mar", employee: 8400, average: 8700 },
+  { month: "Apr", employee: 8600, average: 8800 },
+  { month: "May", employee: 8800, average: 8900 },
+  { month: "Jun", employee: 9000, average: 9000 },
+]
 
+const skillAnalysisData = [
+  { skill: "JavaScript", score: 95 },
+  { skill: "React", score: 90 },
+  { skill: "Node.js", score: 85 },
+  { skill: "Python", score: 80 },
+  { skill: "SQL", score: 88 },
+]
 
 export default function EmployeeProfile() {
   const [map1, setMap1] = useState(new Map());
@@ -81,12 +97,12 @@ export default function EmployeeProfile() {
           <CardHeader>
             <div className="flex items-center space-x-4">
               <Avatar className="w-20 h-20">
-                <AvatarImage src={`https://www.github.com/${employee.Name.split(' ')[0]}${employee.Name.split(' ')[1]}.png`} alt={employee.Name} />
-                <AvatarFallback>{employee.Name.split(" ").map(n => n[0]).join("")}</AvatarFallback>
+                <AvatarImage src={`https://www.github.com/riyasachdeva04.png`} alt='riya' />
+                <AvatarFallback>Riya Sachdeva</AvatarFallback>
               </Avatar>
               <div>
-                <CardTitle>{employee.Name}</CardTitle>
-                <CardDescription>{employee.Role}</CardDescription>
+                <CardTitle>Riya Sachdeva</CardTitle>
+                <CardDescription>Data Scientist</CardDescription>
               </div>
             </div>
           </CardHeader>
@@ -228,8 +244,7 @@ export default function EmployeeProfile() {
 
       <Card className="mt-6">
         <CardHeader>
-          <CardTitle>Rate Your Coworker</CardTitle>
-          <CardDescription>Provide feedback based on specific categories</CardDescription>
+          <CardTitle>My Ratings</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -237,21 +252,13 @@ export default function EmployeeProfile() {
               <div key={category} className="flex flex-col items-center">
                 <span className="font-semibold mb-2">{category}</span>
                 <div className="flex space-x-2">
-                <Button variant="outline" size="icon" onClick={() => {
-                  const newMap = new Map(map1); 
-                  newMap.set(category, !map1.get(category));  
-                  setMap1(newMap);
-                }}>
+                <Button variant="outline" size="icon" >
                   <ThumbsUp className={`h-4 w-4 ${map1.get(category) ? "fill-current" : ""}`}/>
-                  {map1.get(category) ? true : false}
+                  {map1.get(category) ? true : false}5
                 </Button>
-                <Button variant="outline" size="icon" onClick={() => {
-                  const newMap = new Map(map2); 
-                  newMap.set(category, !map2.get(category));  
-                  setMap2(newMap);
-                }}>
+                <Button variant="outline" size="icon">
                   <ThumbsDown className={`h-4 w-4 ${map2.get(category) ? "fill-current" : ""}`}/>
-                  {map2.get(category) ? true : false}
+                  {map2.get(category) ? true : false}1
                 </Button>
                 </div>
               </div>
@@ -272,15 +279,7 @@ export default function EmployeeProfile() {
             onChange={(e) => setFeedback(e.target.value)}
             className="mb-4"
           />
-          <Button onClick={() => {
-            for(const category of ["Collaboration", "Technical Skill", "Communication", "Problem Solving"]){
-              const maptemp = new Map();
-              setMap1(maptemp);
-              setMap2(maptemp);
-              setFeedback("");
-              
-            }
-          }} >Submit Feedback</Button>
+          <Button>Submit Feedback</Button>
         </CardContent>
       </Card>
     </div>
