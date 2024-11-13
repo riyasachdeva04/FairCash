@@ -47,7 +47,7 @@ To run Fair Cash locally:
 
 1. Clone the repo:
    ```bash
-   git clone https://github.com/yourusername/fair-cash.git
+   git clone https://github.com/riyasachdeva04/faircash.git
    ```
 
 2. Install dependencies:
