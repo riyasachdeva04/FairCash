@@ -243,13 +243,21 @@ export default function EmployeeProfile() {
               onChange={(e) => setFeedback(e.target.value)}
               className="mb-4 bg-gray-800 border-gray-700 text-gray-200 placeholder-gray-500"
             />
-            <Button onClick={() => {
+            {/* <Button onClick={() => {
               setMap1(new Map())
               setMap2(new Map())
               setFeedback("")
             }} className="bg-blue-600 hover:bg-blue-700 text-white">
               Submit Feedback
-            </Button>
+            </Button> */}
+          <Button onClick={() => {
+            setMap1(new Map())
+            setMap2(new Map())
+            setFeedback("")
+            alert("Feedback submitted successfully!")
+          }} className="bg-blue-600 hover:bg-blue-700 text-white">
+            Submit Feedback
+          </Button>
           </CardContent>
         </Card>
       </div>

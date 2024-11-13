@@ -6,17 +6,39 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
 import { Progress } from "@/components/ui/progress"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { ThumbsUp, ThumbsDown, Briefcase, GraduationCap, Award, Clock, Calendar } from "lucide-react"
-import { Textarea } from "@/components/ui/textarea"
+import { ThumbsUp, ThumbsDown, Briefcase, GraduationCap, Award, Clock, Star } from "lucide-react"
 import GitHubCalendar from 'react-github-calendar'
-import { TrendingUp } from "lucide-react"
-import { Bar, BarChart, CartesianGrid, Rectangle, XAxis } from "recharts"
+import { Bar, BarChart, CartesianGrid, Rectangle, XAxis, Label, Pie, PieChart } from "recharts"
 import {
   ChartConfig,
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart"
+
+const reviews = [
+  {
+    id: 1,
+    name: "Anonymous",
+    avatar: "https://uploads.dailydot.com/2024/09/alien-cult-1.jpg?auto=compress&fm=pjpg",
+    rating: 4,
+    comment: "You're great at troubleshooting when things go wrong, but I think you could work more closely with us on CI/CD pipelines to make model integration smoother."
+  },
+  {
+    id: 2,
+    name: "Anonymous",
+    avatar: "https://uploads.dailydot.com/2024/09/alien-cult-1.jpg?auto=compress&fm=pjpg",
+    rating: 5,
+    comment: "You’re fantastic at building out data-heavy solutions, but when scaling models, sometimes we find ourselves having to rework the infrastructure you’ve set up due to resource needs."
+  },
+  {
+    id: 3,
+    name: "Anonymous",
+    avatar: "https://uploads.dailydot.com/2024/09/alien-cult-1.jpg?auto=compress&fm=pjpg",
+    rating: 3,
+    comment: "I appreciate how you handle data privacy and security, but sometimes there’s a lack of awareness about potential vulnerabilities when models are deployed into production."
+  }
+]
 
 const chartData = [
   { language: "JS", Progress: 90, fill: "#FFD700" },
@@ -80,6 +102,38 @@ const skillAnalysisData = [
   { skill: "Python", score: 80 },
   { skill: "SQL", score: 88 },
 ]
+const chartData2 = [
+  { browser: "chrome", visitors: 90, fill: "var(--color-chrome)" },
+  { browser: "safari", visitors: 60, fill: "var(--color-safari)" },
+  { browser: "firefox", visitors: 95, fill: "var(--color-firefox)" },
+  { browser: "edge", visitors: 20, fill: "var(--color-edge)" },
+  { browser: "other", visitors: 80, fill: "var(--color-other)" },
+]
+const chartConfig2 = {
+  visitors: {
+    label: "Severity",
+  },
+  chrome: {
+    label: "Technical Expertise",
+    color: "#37a228",
+  },
+  safari: {
+    label: "Lack of Collaboration",
+    color: "#ff0000",
+  },
+  firefox: {
+    label: "Focus on Technical Detail",
+    color: "#37a228",
+  },
+  edge: {
+    label: "Limited Deployment and Scalability Awareness",
+    color: "#ff0000",
+  },
+  other: {
+    label: "Security Awareness",
+    color: "#37a228",
+  },
+} satisfies ChartConfig
 
 export default function EmployeeProfile() {
   const [map1, setMap1] = useState(new Map())
@@ -241,19 +295,91 @@ export default function EmployeeProfile() {
           </CardContent>
         </Card>
 
-        <Card className="bg-gray-900 border-gray-800 shadow-lg">
+        <Card className="bg-gray-900 border-gray-800 shadow-lg mb-6">
           <CardHeader>
-            <CardTitle className="text-xl font-bold text-gray-100">Submit Anonymous Feedback</CardTitle>
-            <CardDescription className="text-gray-400">Your feedback will be kept confidential</CardDescription>
+            <CardTitle className="text-xl font-bold text-gray-100">Feedback Analysis</CardTitle>
+            <CardDescription className="text-gray-400">What do your Co-Workers think about you?</CardDescription>
           </CardHeader>
-          <CardContent>
-            <Textarea
-              placeholder="Share your experience working with this person..."
-              value={feedback}
-              onChange={(e) => setFeedback(e.target.value)}
-              className="mb-4 bg-gray-800 border-gray-700 text-gray-200 placeholder-gray-500"
-            />
-            <Button className="bg-blue-600 hover:bg-blue-700 text-white">Submit Feedback</Button>
+          <CardContent className="flex flex-col md:flex-row gap-4">
+            <div className="flex-1">
+              <ChartContainer
+                config={chartConfig2}
+                className="mx-auto aspect-square max-h-[250px]"
+              >
+                <PieChart>
+                  <ChartTooltip
+                    cursor={false}
+                    content={<ChartTooltipContent hideLabel />}
+                  />
+                  <Pie
+                    data={chartData2}
+                    dataKey="visitors"
+                    nameKey="browser"
+                    innerRadius={60}
+                    strokeWidth={5}
+                  >
+                    <Label
+                      content={({ viewBox }) => {
+                        if (viewBox && "cx" in viewBox && "cy" in viewBox) {
+                          return (
+                            <text
+                              x={viewBox.cx}
+                              y={viewBox.cy}
+                              textAnchor="middle"
+                              dominantBaseline="middle"
+                            >
+                              <tspan
+                                x={viewBox.cx}
+                                y={viewBox.cy}
+                                className="text-small fill-muted-foreground"
+                              >
+                                Sentimental
+                              </tspan>
+                              <tspan
+                                x={viewBox.cx}
+                                y={(viewBox.cy || 0) + 24}
+                                className="text-small fill-muted-foreground"
+                              >
+                                Analysis
+                              </tspan>
+                            </text>
+                          )
+                        }
+                      }}
+                    />
+                  </Pie>
+                </PieChart>
+              </ChartContainer>
+            </div>
+            <div className="flex-1">
+              {/* <CardHeader>
+                <CardTitle className="text-xl font-bold text-gray-100">Featured Reviews</CardTitle>
+              </CardHeader> */}
+              <div className="space-y-4">
+                {reviews.map((review) => (
+                  <div key={review.id} className="flex items-start space-x-4 p-4 bg-gray-800 rounded-lg">
+                    <Avatar className="w-10 h-10">
+                      <AvatarImage src={review.avatar} alt={review.name} />
+                      <AvatarFallback>{review.name.split(' ').map(n => n[0]).join('')}</AvatarFallback>
+                    </Avatar>
+                    <div className="flex-1">
+                      <div className="flex items-center justify-between">
+                        <h4 className="font-semibold text-gray-100">{review.name}</h4>
+                        <div className="flex items-center">
+                          {[...Array(5)].map((_, i) => (
+                            <Star
+                              key={i}
+                              className={`w-4 h-4 ${i < review.rating ? 'text-yellow-400 fill-yellow-400' : 'text-gray-600'}`}
+                            />
+                          ))}
+                        </div>
+                      </div>
+                      <p className="mt-1 text-sm text-gray-300">{review.comment}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
           </CardContent>
         </Card>
       </div>
