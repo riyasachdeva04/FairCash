@@ -1,0 +1,231 @@
+Fetching repo: google-deepmind/gemma
+Repo: google-deepmind/gemma | PR Title: Fix huggingface_hub code snippet | Author: osanseviero | Status: open
+Created at: 2024-05-13 21:15:35+00:00 | Merged at: None
+URL: https://github.com/google-deepmind/gemma/pull/31
+--------------------------------------------------------------------------------
+Repo: google-deepmind/gemma | PR Title: Fix typo in repo card | Author: osanseviero | Status: open
+Created at: 2024-03-26 14:02:10+00:00 | Merged at: None
+URL: https://github.com/google-deepmind/gemma/pull/24
+--------------------------------------------------------------------------------
+Repo: google-deepmind/gemma | PR Title: Add HF pointers | Author: osanseviero | Status: closed
+Created at: 2024-03-01 22:56:01+00:00 | Merged at: 2024-03-26 13:45:31+00:00
+URL: https://github.com/google-deepmind/gemma/pull/15
+--------------------------------------------------------------------------------
+Repo: google-deepmind/gemma | PR Title: Fix ReadMe Command | Author: huxiaoxu2019 | Status: closed
+Created at: 2024-02-27 17:16:13+00:00 | Merged at: 2024-02-28 16:46:46+00:00
+URL: https://github.com/google-deepmind/gemma/pull/12
+--------------------------------------------------------------------------------
+Fetching repo: google-deepmind/optax
+Repo: google-deepmind/optax | PR Title: add config for link checking, and mark 429 (too many requests) as fine | Author: fabianp | Status: closed
+Created at: 2024-10-14 10:45:29+00:00 | Merged at: 2024-10-15 14:53:31+00:00
+URL: https://github.com/google-deepmind/optax/pull/1103
+--------------------------------------------------------------------------------
+Repo: google-deepmind/optax | PR Title: cosmetic improvements perturbations module | Author: fabianp | Status: closed
+Created at: 2024-10-09 06:48:02+00:00 | Merged at: 2024-10-14 11:23:42+00:00
+URL: https://github.com/google-deepmind/optax/pull/1097
+--------------------------------------------------------------------------------
+Repo: google-deepmind/optax | PR Title: use sphinx references instead of hardcoded links. | Author: fabianp | Status: closed
+Created at: 2024-10-09 06:38:10+00:00 | Merged at: 2024-10-10 07:37:50+00:00
+URL: https://github.com/google-deepmind/optax/pull/1096
+--------------------------------------------------------------------------------
+Repo: google-deepmind/optax | PR Title: add link to examples from docstring | Author: fabianp | Status: closed
+Created at: 2024-10-02 08:49:07+00:00 | Merged at: 2024-10-03 07:54:13+00:00
+URL: https://github.com/google-deepmind/optax/pull/1085
+--------------------------------------------------------------------------------
+Repo: google-deepmind/optax | PR Title: correct RST references | Author: fabianp | Status: closed
+Created at: 2024-10-01 08:08:18+00:00 | Merged at: 2024-10-01 17:53:01+00:00
+URL: https://github.com/google-deepmind/optax/pull/1079
+--------------------------------------------------------------------------------
+Repo: google-deepmind/optax | PR Title: bump chex version for #1076 | Author: fabianp | Status: closed
+Created at: 2024-10-01 07:19:14+00:00 | Merged at: 2024-10-01 13:12:51+00:00
+URL: https://github.com/google-deepmind/optax/pull/1078
+--------------------------------------------------------------------------------
+Repo: google-deepmind/optax | PR Title: Update polynomial_schedule doctest per @vroulet's feedback | Author: fabianp | Status: closed
+Created at: 2024-09-03 07:28:24+00:00 | Merged at: 2024-09-06 15:05:27+00:00
+URL: https://github.com/google-deepmind/optax/pull/1045
+--------------------------------------------------------------------------------
+Repo: google-deepmind/optax | PR Title: Fix typo in formula of cosine_decay_schedule | Author: fabianp | Status: closed
+Created at: 2024-09-03 07:10:42+00:00 | Merged at: 2024-09-04 10:41:49+00:00
+URL: https://github.com/google-deepmind/optax/pull/1044
+--------------------------------------------------------------------------------
+Repo: google-deepmind/optax | PR Title: add missing schedule_free_* methods | Author: fabianp | Status: closed
+Created at: 2024-09-02 14:38:08+00:00 | Merged at: 2024-09-03 06:35:50+00:00
+URL: https://github.com/google-deepmind/optax/pull/1043
+--------------------------------------------------------------------------------
+Repo: google-deepmind/optax | PR Title: fix error in softmax_cross_entropy formula | Author: fabianp | Status: closed
+Created at: 2024-09-02 07:49:34+00:00 | Merged at: 2024-09-03 06:45:49+00:00
+URL: https://github.com/google-deepmind/optax/pull/1041
+--------------------------------------------------------------------------------
+Repo: google-deepmind/optax | PR Title: add doctest for polynomial_schedule | Author: fabianp | Status: closed
+Created at: 2024-08-30 12:15:44+00:00 | Merged at: 2024-08-30 19:01:45+00:00
+URL: https://github.com/google-deepmind/optax/pull/1037
+--------------------------------------------------------------------------------
+Repo: google-deepmind/optax | PR Title: add doctest to constant_schedule | Author: fabianp | Status: closed
+Created at: 2024-08-28 14:17:52+00:00 | Merged at: 2024-08-28 15:32:05+00:00
+URL: https://github.com/google-deepmind/optax/pull/1034
+--------------------------------------------------------------------------------
+Repo: google-deepmind/optax | PR Title: keep a local .pylintrc file | Author: fabianp | Status: closed
+Created at: 2024-07-24 14:09:51+00:00 | Merged at: 2024-07-25 06:18:04+00:00
+URL: https://github.com/google-deepmind/optax/pull/1024
+--------------------------------------------------------------------------------
+Repo: google-deepmind/optax | PR Title: keep a local .pylintrc file | Author: fabianp | Status: closed
+Created at: 2024-07-24 13:45:33+00:00 | Merged at: None
+URL: https://github.com/google-deepmind/optax/pull/1023
+--------------------------------------------------------------------------------
+Repo: google-deepmind/optax | PR Title: keep a local .pylintrc file | Author: fabianp | Status: closed
+Created at: 2024-07-24 09:35:09+00:00 | Merged at: None
+URL: https://github.com/google-deepmind/optax/pull/1021
+--------------------------------------------------------------------------------
+Repo: google-deepmind/optax | PR Title: Saurav maheshkar saurav/scale by grad norm | Author: fabianp | Status: closed
+Created at: 2024-07-08 13:53:54+00:00 | Merged at: 2024-07-09 09:30:15+00:00
+URL: https://github.com/google-deepmind/optax/pull/1000
+--------------------------------------------------------------------------------
+Repo: google-deepmind/optax | PR Title: remove residues from previous builds before running tests | Author: fabianp | Status: closed
+Created at: 2024-05-20 13:05:51+00:00 | Merged at: 2024-05-20 16:01:21+00:00
+URL: https://github.com/google-deepmind/optax/pull/967
+--------------------------------------------------------------------------------
+Repo: google-deepmind/optax | PR Title: remove duplicated BATCH_SIZE argument | Author: fabianp | Status: closed
+Created at: 2024-04-30 15:01:37+00:00 | Merged at: 2024-04-30 16:41:41+00:00
+URL: https://github.com/google-deepmind/optax/pull/956
+--------------------------------------------------------------------------------
+Repo: google-deepmind/optax | PR Title: Fix RST formatting issues. | Author: fabianp | Status: closed
+Created at: 2024-04-27 13:03:31+00:00 | Merged at: 2024-04-29 08:09:01+00:00
+URL: https://github.com/google-deepmind/optax/pull/953
+--------------------------------------------------------------------------------
+Repo: google-deepmind/optax | PR Title: docstring formatting | Author: fabianp | Status: closed
+Created at: 2024-04-26 07:18:51+00:00 | Merged at: 2024-04-27 12:12:07+00:00
+URL: https://github.com/google-deepmind/optax/pull/952
+--------------------------------------------------------------------------------
+Repo: google-deepmind/optax | PR Title: Formatting in momo docstring + doctest | Author: fabianp | Status: closed
+Created at: 2024-04-25 12:56:43+00:00 | Merged at: 2024-04-25 15:36:13+00:00
+URL: https://github.com/google-deepmind/optax/pull/950
+--------------------------------------------------------------------------------
+Repo: google-deepmind/optax | PR Title: Simplification for transforms with empty state | Author: fabianp | Status: open
+Created at: 2024-03-28 08:24:26+00:00 | Merged at: None
+URL: https://github.com/google-deepmind/optax/pull/895
+--------------------------------------------------------------------------------
+Repo: google-deepmind/optax | PR Title: docstring cosmetic improvements | Author: fabianp | Status: closed
+Created at: 2024-03-22 08:45:13+00:00 | Merged at: 2024-03-22 15:03:18+00:00
+URL: https://github.com/google-deepmind/optax/pull/879
+--------------------------------------------------------------------------------
+Repo: google-deepmind/optax | PR Title: WIP chain optimizers in example reduce_on_plateau | Author: fabianp | Status: closed
+Created at: 2024-03-21 19:05:17+00:00 | Merged at: None
+URL: https://github.com/google-deepmind/optax/pull/877
+--------------------------------------------------------------------------------
+Repo: google-deepmind/optax | PR Title: FIX RST formatting in inject hyperparams | Author: fabianp | Status: closed
+Created at: 2024-03-15 08:34:26+00:00 | Merged at: 2024-03-16 08:03:24+00:00
+URL: https://github.com/google-deepmind/optax/pull/867
+--------------------------------------------------------------------------------
+Repo: google-deepmind/optax | PR Title: Test on Python 3.12 | Author: fabianp | Status: open
+Created at: 2024-03-12 13:40:28+00:00 | Merged at: None
+URL: https://github.com/google-deepmind/optax/pull/862
+--------------------------------------------------------------------------------
+Repo: google-deepmind/optax | PR Title: [IGNORE] dummy commit to see if RDT build upon pull requests | Author: fabianp | Status: closed
+Created at: 2024-03-12 13:30:28+00:00 | Merged at: None
+URL: https://github.com/google-deepmind/optax/pull/861
+--------------------------------------------------------------------------------
+Repo: google-deepmind/optax | PR Title: Use sphinx-contributors for an automated contributors list. | Author: fabianp | Status: closed
+Created at: 2024-03-02 14:21:32+00:00 | Merged at: 2024-03-11 08:34:49+00:00
+URL: https://github.com/google-deepmind/optax/pull/841
+--------------------------------------------------------------------------------
+Repo: google-deepmind/optax | PR Title: Refactoring and link fixes in development.md | Author: fabianp | Status: closed
+Created at: 2024-02-24 14:16:41+00:00 | Merged at: 2024-02-25 07:43:44+00:00
+URL: https://github.com/google-deepmind/optax/pull/822
+--------------------------------------------------------------------------------
+Repo: google-deepmind/optax | PR Title: [FIX] bad indentation in the docstring of nadam | Author: fabianp | Status: closed
+Created at: 2024-02-18 08:20:57+00:00 | Merged at: 2024-02-19 14:45:22+00:00
+URL: https://github.com/google-deepmind/optax/pull/812
+--------------------------------------------------------------------------------
+Repo: google-deepmind/optax | PR Title: [DOC] streamline sidebar of gallery | Author: fabianp | Status: closed
+Created at: 2024-02-17 13:44:13+00:00 | Merged at: 2024-02-19 09:31:09+00:00
+URL: https://github.com/google-deepmind/optax/pull/810
+--------------------------------------------------------------------------------
+Repo: google-deepmind/optax | PR Title: Add missing examples to contrib examples section. | Author: fabianp | Status: closed
+Created at: 2024-02-09 16:25:48+00:00 | Merged at: 2024-02-09 16:36:33+00:00
+URL: https://github.com/google-deepmind/optax/pull/794
+--------------------------------------------------------------------------------
+Repo: google-deepmind/optax | PR Title: Add missing examples to contrib examples section. | Author: fabianp | Status: closed
+Created at: 2024-02-09 14:33:27+00:00 | Merged at: None
+URL: https://github.com/google-deepmind/optax/pull/792
+--------------------------------------------------------------------------------
+Repo: google-deepmind/optax | PR Title: Solve #767, some examples not being displayed on the webpage | Author: fabianp | Status: closed
+Created at: 2024-02-09 12:56:13+00:00 | Merged at: 2024-02-09 14:13:31+00:00
+URL: https://github.com/google-deepmind/optax/pull/791
+--------------------------------------------------------------------------------
+Repo: google-deepmind/optax | PR Title: [DOC] merge development and design_docs into a single file | Author: fabianp | Status: closed
+Created at: 2024-02-09 12:05:51+00:00 | Merged at: 2024-02-09 12:17:35+00:00
+URL: https://github.com/google-deepmind/optax/pull/789
+--------------------------------------------------------------------------------
+Repo: google-deepmind/optax | PR Title: workaround for pylint issues | Author: fabianp | Status: closed
+Created at: 2024-02-07 20:31:40+00:00 | Merged at: 2024-02-08 15:37:35+00:00
+URL: https://github.com/google-deepmind/optax/pull/783
+--------------------------------------------------------------------------------
+Repo: google-deepmind/optax | PR Title: [TEST] Install virtual environment in current directory instead of /tmp | Author: fabianp | Status: closed
+Created at: 2024-01-29 11:28:29+00:00 | Merged at: 2024-01-29 12:11:48+00:00
+URL: https://github.com/google-deepmind/optax/pull/746
+--------------------------------------------------------------------------------
+Repo: google-deepmind/optax | PR Title: Install virtual environment in current directory instead of /tmp | Author: fabianp | Status: closed
+Created at: 2024-01-29 11:27:44+00:00 | Merged at: None
+URL: https://github.com/google-deepmind/optax/pull/745
+--------------------------------------------------------------------------------
+Repo: google-deepmind/optax | PR Title: use mktemp to create a temporary file | Author: fabianp | Status: closed
+Created at: 2024-01-29 10:58:47+00:00 | Merged at: None
+URL: https://github.com/google-deepmind/optax/pull/744
+--------------------------------------------------------------------------------
+Repo: google-deepmind/optax | PR Title: downgrade pytest to 7.4.4 | Author: fabianp | Status: closed
+Created at: 2024-01-29 09:13:44+00:00 | Merged at: None
+URL: https://github.com/google-deepmind/optax/pull/743
+--------------------------------------------------------------------------------
+Repo: google-deepmind/optax | PR Title: Minor tweak in pypi-publish.yml | Author: fabianp | Status: closed
+Created at: 2024-01-26 16:15:38+00:00 | Merged at: 2024-01-26 16:37:54+00:00
+URL: https://github.com/google-deepmind/optax/pull/739
+--------------------------------------------------------------------------------
+Repo: google-deepmind/optax | PR Title: FIX sphinx warnings "this document is not included in any toctree" | Author: fabianp | Status: closed
+Created at: 2024-01-25 14:44:04+00:00 | Merged at: 2024-01-26 07:09:19+00:00
+URL: https://github.com/google-deepmind/optax/pull/736
+--------------------------------------------------------------------------------
+Repo: google-deepmind/optax | PR Title: Stricter documentation testing that breaks on warnings | Author: fabianp | Status: closed
+Created at: 2024-01-25 11:45:20+00:00 | Merged at: None
+URL: https://github.com/google-deepmind/optax/pull/735
+--------------------------------------------------------------------------------
+Repo: google-deepmind/optax | PR Title: Enable doctests in sphinx and fix failing doctests | Author: fabianp | Status: closed
+Created at: 2024-01-24 14:17:28+00:00 | Merged at: 2024-01-24 17:24:19+00:00
+URL: https://github.com/google-deepmind/optax/pull/733
+--------------------------------------------------------------------------------
+Repo: google-deepmind/optax | PR Title: typo nesterov -> Nesterov | Author: fabianp | Status: closed
+Created at: 2024-01-19 14:11:34+00:00 | Merged at: 2024-01-19 14:43:35+00:00
+URL: https://github.com/google-deepmind/optax/pull/722
+--------------------------------------------------------------------------------
+Repo: google-deepmind/optax | PR Title: Show CI results only for the main branch | Author: fabianp | Status: closed
+Created at: 2024-01-16 12:23:54+00:00 | Merged at: 2024-01-16 13:02:17+00:00
+URL: https://github.com/google-deepmind/optax/pull/716
+--------------------------------------------------------------------------------
+Repo: google-deepmind/optax | PR Title: Test on Python 3.12 | Author: fabianp | Status: closed
+Created at: 2024-01-16 09:38:15+00:00 | Merged at: None
+URL: https://github.com/google-deepmind/optax/pull/714
+--------------------------------------------------------------------------------
+Repo: google-deepmind/optax | PR Title: Add the SAM example to the example gallery | Author: fabianp | Status: closed
+Created at: 2023-12-21 14:30:36+00:00 | Merged at: 2023-12-22 14:34:20+00:00
+URL: https://github.com/google-deepmind/optax/pull/681
+--------------------------------------------------------------------------------
+Repo: google-deepmind/optax | PR Title: Add to .gitignore temporary directories of building the docs. | Author: fabianp | Status: closed
+Created at: 2023-12-21 13:48:22+00:00 | Merged at: 2023-12-21 14:14:09+00:00
+URL: https://github.com/google-deepmind/optax/pull/680
+--------------------------------------------------------------------------------
+Repo: google-deepmind/optax | PR Title: Run pytype on Python 3.11 | Author: fabianp | Status: closed
+Created at: 2023-12-05 09:23:06+00:00 | Merged at: 2023-12-05 15:35:37+00:00
+URL: https://github.com/google-deepmind/optax/pull/657
+--------------------------------------------------------------------------------
+Repo: google-deepmind/optax | PR Title: Use sphinx-gallery to display gallery of examples | Author: fabianp | Status: closed
+Created at: 2023-11-06 09:19:59+00:00 | Merged at: None
+URL: https://github.com/google-deepmind/optax/pull/618
+--------------------------------------------------------------------------------
+Repo: google-deepmind/optax | PR Title: Adds dtype params to sgd + adam. | Author: andsteing | Status: closed
+Created at: 2021-08-30 05:58:59+00:00 | Merged at: None
+URL: https://github.com/google-deepmind/optax/pull/174
+--------------------------------------------------------------------------------
+Repo: google-deepmind/optax | PR Title: FIX broken link to quick start notebook | Author: fabianp | Status: closed
+Created at: 2021-07-08 19:06:23+00:00 | Merged at: 2021-07-09 18:13:08+00:00
+URL: https://github.com/google-deepmind/optax/pull/158
+--------------------------------------------------------------------------------
+Fetching repo: google-deepmind/mujoco

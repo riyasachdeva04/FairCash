@@ -1,0 +1,59 @@
+It's impossible to give precise salary predictions without more context about the company's specific compensation structure, location, and industry benchmarks. However, based on the provided data and general trends in the tech market in 2024, here's a rough estimation of salaries for each employee:
+
+**General Notes:**
+
+* **Location:** Assuming this is a Series B tech startup in India, location will have a significant impact on salaries. 
+* **YC Backing:** YC-backed startups tend to offer slightly higher salaries compared to non-YC startups, but it's not a guarantee. 
+* **Experience vs. Years Working:** "No. of Years Experience" might be different from "No. of Years Working" because of career breaks or early career jobs unrelated to the current role. This difference will affect the salary estimate. 
+
+**Salary Estimates (in INR Lakhs, roughly):**
+
+* **Anjali Patel (Network Engineer):** 10-12 Lakhs
+* **Rajesh Nair (Data Scientist):** 12-14 Lakhs
+* **Madhuri Deshmukh (Software Engineer):** 10-12 Lakhs
+* **Rahul Mehta (Network Engineer):** 10-12 Lakhs
+* **Pooja Sharma (Frontend Developer):** 9-11 Lakhs
+* **Sanjay Kapoor (Software Engineer):** 10-12 Lakhs
+* **Jaya Singh (Cloud Engineer):** 9-11 Lakhs
+* **Arjun Verma (Security Engineer):** 11-13 Lakhs
+* **Sneha Rathi (Cloud Engineer):** 8-10 Lakhs
+* **Salman Khan (Network Engineer):** 9-11 Lakhs
+* **Ravi Prasad (Cloud Engineer):** 8-10 Lakhs
+* **Kunal Batra (Systems Engineer):** 10-12 Lakhs
+* **Vikram Reddy (Network Engineer):** 8-10 Lakhs
+* **Sunita Das (Network Engineer):** 10-12 Lakhs
+* **Riya Sachdeva (Systems Engineer):** 11-13 Lakhs
+* **Geeta Malhotra (DevOps Engineer):** 10-12 Lakhs
+* **Ramesh Gupta (Software Engineer):** 9-11 Lakhs
+* **Deepak Choudhary (DevOps Engineer):** 9-11 Lakhs
+* **Simran Jain (Full Stack Developer):** 9-11 Lakhs
+* **Minal Kapoor (QA Engineer):** 9-11 Lakhs
+* **Swati Mishra (Systems Engineer):** 9-11 Lakhs
+* **Kabir Chawla (DevOps Engineer):** 10-12 Lakhs
+* **Dr. Neha Singh (Backend Developer):** 10-12 Lakhs
+* **Priya Agarwal (Cloud Engineer):** 8-10 Lakhs
+* **Kavita Reddy (Systems Engineer):** 9-11 Lakhs
+* **Ajay Kumar (DevOps Engineer):** 11-13 Lakhs
+* **Dr. Manoj Menon (Software Engineer):** 10-12 Lakhs
+* **Lakshmi Iyer (DevOps Engineer):** 9-11 Lakhs
+* **Ritu Kohli (Software Engineer):** 10-12 Lakhs
+* **Dr. Anjali Sen (QA Engineer):** 9-11 Lakhs
+* **Mr. Sameer Ali (Security Engineer):** 10-12 Lakhs
+* **Tarun Chopra (Network Engineer):** 8-10 Lakhs
+* **Michael Fernandes (Backend Developer):** 9-11 Lakhs
+* **Vikram Arora (Backend Developer):** 8-10 Lakhs
+* **Aniket Sinha (Backend Developer):** 9-11 Lakhs
+* **Ravi Nair (QA Engineer):** 9-11 Lakhs
+* **Nisha Kapoor (Cloud Engineer):** 10-12 Lakhs
+* **Anil Kumar (Systems Engineer):** 8-10 Lakhs
+* **Priyanka Joshi (Frontend Developer):** 8-10 Lakhs
+
+**Important Considerations:**
+
+* **Performance and Contributions:**  The salary estimates above do not account for individual performance, contributions to company growth, or other factors that might lead to a salary increase beyond the average for the role.
+* **Stock Options:** YC-backed companies often offer stock options as part of compensation. These can potentially be very valuable, but their worth depends on the company's future success.
+* **Negotiation:** Salaries are not always fixed. Employees should be prepared to negotiate their salary based on their experience, skills, and market value. 
+
+**Recommendation:**
+
+It's best to consult with a compensation expert who specializes in the tech industry in India for more precise salary predictions.  Consider factors like the company's financial health, growth stage, and specific role requirements for a more accurate estimate.

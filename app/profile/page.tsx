@@ -16,13 +16,14 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart"
+import { randomInt } from "crypto"
 
 const chartData = [
-  { language: "JS", Progress: 90, fill: "#FFD700" },
-  { language: "Python", Progress: 80, fill: "#4B0082" },
-  { language: "Cpp", Progress: 90, fill: "#00CED1" },
-  { language: "Java", Progress: 80, fill: "#FF6347" },
-  { language: "Go", Progress: 89, fill: "#32CD32" },
+  { language: "JS", Progress: Math.floor(Math.random() * (60)+50), fill: "#FFD700" },
+  { language: "Python", Progress: Math.floor(Math.random() * (60)+50), fill: "#4B0082" },
+  { language: "Cpp", Progress: Math.floor(Math.random() * (60)+50), fill: "#00CED1" },
+  { language: "Java", Progress: Math.floor(Math.random() * (60)+50), fill: "#FF6347" },
+  { language: "Go", Progress: Math.floor(Math.random() * (60)+50), fill: "#32CD32" },
 ]
 
 const chartConfig = {

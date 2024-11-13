@@ -11,7 +11,7 @@ export function Navbar() {
             </div>
             <div>
                 <Link href={{ pathname: `/myprofile` }} passHref>
-                    <Button>Your Profile</Button>
+                    <Button>My Profile</Button>
                 </Link>
             </div>
         </div>
